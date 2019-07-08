@@ -1,0 +1,96 @@
+﻿<div id="dg-new-user-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title pull-left"><i class="fa fa-user-plus"></i> Новый сотрудник</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @model StaffManagement.Core.Entities.NewEmployeeViewModel
+            @using (Html.BeginForm("AddOrChangeEmployee", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @Html.HiddenFor(model => model.Id)
+                            <div class="form-group">
+                                <label class="col-md-4">Фамилия:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Surname, new {htmlAttributes = new {@class = "form-control", required = "required"}})
+                                    @Html.ValidationMessageFor(model => model.Surname)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Имя:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "form-control", required = "required"}})
+                                    @Html.ValidationMessageFor(model => model.FirstName)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Отчество:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Patronymic, new {htmlAttributes = new {@class = "form-control", required = "required"}})
+                                    @Html.ValidationMessageFor(model => model.Patronymic)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Дата рождения:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.BirthDate, new {htmlAttributes = new {@class = "form-control txt-datetime", required = "required", autocomplete="off"}})
+                                    @Html.ValidationMessageFor(model => model.BirthDate)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Подразде-ление:</label>
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.Subdivision, ViewBag.SubdivisionNames as List<SelectListItem>, new {@class = "form-control", required = "required"})
+                                    @Html.ValidationMessageFor(model => model.Subdivision)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-4">Должность:</label>
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.Position, ViewBag.PositionNames as List<SelectListItem>, new { @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Position)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Ставка:</label>
+                                <div class="col-md-4">
+                                    @Html.EditorFor(model => model.Rate, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.Rate)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Email:</label>
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                    @Html.ValidationMessageFor(model => model.Email)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4">Статус:</label>
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.Status, ViewBag.StatusList as List<SelectListItem>, new { @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Status)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Сохранить</button>
+                    <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal"><i class="fa fa-close"></i> Закрыть</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/js/edit.js"></script>

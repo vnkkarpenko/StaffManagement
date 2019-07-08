@@ -1,0 +1,76 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.tbl-staff th,tr {
+    text-align: center;
+    font-size: 13px;
+}
+.panel-table .panel-body{
+    padding:0;
+}
+.panel-table .panel-body .table-bordered{
+    margin:0;
+}
+.panel-table .panel-footer .pagination{
+    margin:0; 
+}
+.panel-table .panel-footer .col{
+    line-height: 34px;
+    height: 34px;
+}
+.panel-table .panel-heading .col h2{
+    line-height: 30px;
+    height: 30px;
+}
+.panel-table .panel-body .table-bordered > tbody > tr > td{
+    line-height: 34px;
+}
+#dg-new-user-modal label{
+    font-size: 13px;
+    margin-top: 10px;
+}
+.panel-footer .badge {
+    font-size: 10px;
+}
+.stat-info {
+    font-size: 12px;
+}
+.stat-info hr {
+    margin-top: 10px;
+    height: 0.3px;
+    background-color: #c0c0c0!important;
+    border: none;
+}
+.line-info { 
+    border-left: 2px solid #ccc;
+    margin-left: 8px;
+    padding-left: 12px;
+}
+.search-box {
+    margin-top: 0px;
+    border: 0;
+    border-radius: 0px;
+    border-bottom: 1px solid white;
+    text-align: left;
+    min-width: 20vw;
+    max-height: 28px;
+}
+.search-icon {
+    border-radius: 1px;
+    float: right;
+}
+.inner-addon {
+    position: relative;
+}
+.inner-addon .fa {
+    position: absolute;
+    pointer-events: none;
+}
+.left-addon .fa {
+    left: 0px;
+}
+.right-addon .fa {
+    right: 10px;
+    top: 5px;
+}
